@@ -43,14 +43,15 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DialogComponent } from './dialog/dialog.component';
 import {WindowService} from './windows.service';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent
+    DialogComponent,
+    HeaderComponent
   ],
   entryComponents: [DialogComponent],
   exports: [
-     //MdButtonModule
   ],
   imports: [
     BrowserModule,
@@ -89,6 +90,7 @@ import {WindowService} from './windows.service';
     MdTabsModule,
     MdToolbarModule,
     MdTooltipModule
+      /*routing*/
   ],
   providers: [],
   bootstrap: [AppComponent]
