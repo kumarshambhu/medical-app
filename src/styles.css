@@ -13,3 +13,15 @@ html, body {
   margin: 0;
   height: 100%;
 }
+.example-icon {
+  padding: 0 4px;
+  margin-left: 20px;
+  margin-right: 20px !important;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.profile-icon {
+  padding-right: 114px !important;
+}
