@@ -10,6 +10,7 @@ export class TypeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

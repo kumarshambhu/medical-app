@@ -1,24 +1,24 @@
 <span class="big-label">Shambhu</span>
 <ul>
-    <li><a class="navbar-brand" [routerLink]="['/']">Home</a></li>
+    <li><a class="navbar-brand" [routerLink]="['/home']">Home</a></li>
     <li> Transactions Pages
         <ul>
-            <li routerLinkActive="active"><a [routerLink]="['/subtype']">Patient Information</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/subtype']">Patient Visit</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/subtype']">Generate Bill</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/patientinfo']">Patient Information</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/patientvisit']">Patient Visit</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/generatebill']">Generate Bill</a></li>
         </ul>
     </li>
     <li>Generate Reports
         <ul>
-            <li routerLinkActive="active"><a [routerLink]="['/subtype']">Datewise Collection</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/subtype']">Type-Subtype Collection</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/subtype']">Show bill</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/billcollection']">Datewise Collection</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/billcollection']">Type-Subtype Collection</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/showbill']">Show bill</a></li>
         </ul>
     </li>
     <li>MasterScreen
         <ul>
-            <li routerLinkActive="active"><a [routerLink]="['/company-information']">Company Information</a></li>
-            <li routerLinkActive="active"><a [routerLink]="['/user-information']">User Information</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/companyinfo']">Company Information</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/userinfo']">User Information</a></li>
             <li routerLinkActive="active"><a [routerLink]="['/type']">Type</a></li>
             <li routerLinkActive="active"><a [routerLink]="['/subtype']">SubType</a></li>
         </ul>

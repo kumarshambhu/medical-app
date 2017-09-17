@@ -18,8 +18,14 @@ import { TypeComponent } from './type/type.component';
 import { SubtypeComponent } from './subtype/subtype.component';
 import {routing} from "./app.routing";
 import { HeaderComponent } from './header/header.component';
-import { CompanyInformationComponent } from './company-information/company-information.component';
-import { UserInformationComponent } from './user-information/user-information.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+import { CompanyinfoComponent } from './companyinfo/companyinfo.component';
+import { ShowbillComponent } from './showbill/showbill.component';
+import { GenerateBillComponent } from './generate-bill/generate-bill.component';
+import { PatientVisitComponent } from './patient-visit/patient-visit.component';
+import { PatientInfoComponent } from './patient-info/patient-info.component';
+import { BillCollectionComponent } from './bill-collection/bill-collection.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -29,8 +35,14 @@ import { UserInformationComponent } from './user-information/user-information.co
     TypeComponent,
     SubtypeComponent,
     HeaderComponent,
-    CompanyInformationComponent,
-    UserInformationComponent
+    UserinfoComponent,
+    CompanyinfoComponent,
+    ShowbillComponent,
+    GenerateBillComponent,
+    PatientVisitComponent,
+    PatientInfoComponent,
+    BillCollectionComponent,
+    HomeComponent
   ],
   entryComponents: [DialogComponent],
   exports: [
