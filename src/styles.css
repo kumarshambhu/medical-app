@@ -25,3 +25,7 @@ html, body {
 .profile-icon {
   padding-right: 114px !important;
 }
+
+.mat-button-left{
+  text-align: left !important;
+}

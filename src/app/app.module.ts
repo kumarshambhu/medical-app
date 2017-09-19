@@ -14,25 +14,30 @@ import { MdAutocompleteModule,  MdButtonModule,  MdButtonToggleModule,  MdCardMo
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpModule} from '@angular/http';
 import 'hammerjs';
-import { TypeComponent } from './type/type.component';
-import { SubtypeComponent } from './subtype/subtype.component';
+import { SubtypeComponent } from './component/subtype/subtype.component';
 import {routing} from "./app.routing";
 import { HeaderComponent } from './header/header.component';
-import { UserinfoComponent } from './userinfo/userinfo.component';
-import { CompanyinfoComponent } from './companyinfo/companyinfo.component';
-import { ShowbillComponent } from './showbill/showbill.component';
-import { GenerateBillComponent } from './generate-bill/generate-bill.component';
-import { PatientVisitComponent } from './patient-visit/patient-visit.component';
-import { PatientInfoComponent } from './patient-info/patient-info.component';
-import { BillCollectionComponent } from './bill-collection/bill-collection.component';
-import { HomeComponent } from './home/home.component';
+import { UserinfoComponent } from './component/userinfo/userinfo.component';
+import { CompanyinfoComponent } from './component/companyinfo/companyinfo.component';
+import { ShowbillComponent } from './component/showbill/showbill.component';
+import { GenerateBillComponent } from './component/generate-bill/generate-bill.component';
+import { PatientVisitComponent } from './component/patient-visit/patient-visit.component';
+import { PatientInfoComponent } from './component/patient-info/patient-info.component';
+import { BillCollectionComponent } from './component/bill-collection/bill-collection.component';
+import { HomeComponent } from './component/home/home.component';
+import { TypeApiService } from './services/type-api.service';
+import { SubTypeApiService } from './services/sub-type-api.service';
+import { TypesComponent } from './component/types/types.component';
+import { TypeListComponent } from './component/types/type-list/type-list.component';
+import { TypeDetailsComponent } from './component/types/type-details/type-details.component';
+import {TypeItemComponent} from "./component/types/type-list/type-item.component";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
-    TypeComponent,
     SubtypeComponent,
     HeaderComponent,
     UserinfoComponent,
@@ -42,7 +47,11 @@ import { HomeComponent } from './home/home.component';
     PatientVisitComponent,
     PatientInfoComponent,
     BillCollectionComponent,
-    HomeComponent
+    HomeComponent,
+    TypesComponent,
+    TypeListComponent,
+    TypeDetailsComponent,
+    TypeItemComponent
   ],
   entryComponents: [DialogComponent],
   exports: [
@@ -55,7 +64,7 @@ import { HomeComponent } from './home/home.component';
     MdRadioModule, MdRippleModule, MdSelectModule, MdSidenavModule, MdSliderModule, MdSlideToggleModule,
     MdSnackBarModule, MdSortModule, MdTableModule, MdTabsModule, MdToolbarModule, MdTooltipModule, routing
   ],
-  providers: [],
+  providers: [TypeApiService, SubTypeApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,8 @@
+<div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+  <md-card fxFlex="60">
+    <app-type-list (typeSelected)= "selectedTypeModel = $event"></app-type-list>
+  </md-card>
+  <md-card fxFlex fxLayout="column" fxLayoutGap="14px">
+    <app-type-details [selectedType]="selectedTypeModel"></app-type-details>
+  </md-card>
+</div>
