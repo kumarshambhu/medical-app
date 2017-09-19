@@ -2,5 +2,9 @@
     <a href="#">New Type</a>
 </p>
 <div>
+  <div *ngFor="let typeModel of typeList">
     <app-type-item [typeModel] = "typeModel" (click)="onSelect(typeModel)"></app-type-item>
+  </div>
 </div>
+
+

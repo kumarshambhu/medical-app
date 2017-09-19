@@ -1,1 +1,51 @@
-{{selectedType?.name}} -- {{selectedType?.description}}
+<!--{{selectedType?.typeId}} &#45;&#45; {{selectedType?.typeName}} &#45;&#45; {{selectedType?.dateCreated}} &#45;&#45; {{selectedType?.isActive}}-->
+
+<script>
+  // Default date and time picker
+  $('#dateCreated1').datetimepicker();
+</script>
+<form [formGroup]="myform">
+  <div class="form-group pmd-textfield">
+    <label for="typeName" class="control-label">
+      Type Name
+    </label>
+    <input type="text" id="typeName" class="form-control" formControlName="typeName" value="{{selectedType?.typeName}}" >
+  </div>
+
+  <div class="form-group pmd-textfield pmd-textfield-floating-label pmd-textfield-floating-label-completed">
+    <label class="control-label" for="dateCreated1">Select Date and Time</label>
+    <input type="text" id="dateCreated1" class="form-control" value="{{selectedType?.dateCreated}}"/>
+  </div>
+
+  <div class="form-group pmd-textfield">
+    <label for="dateCreated" class="control-label">
+      Date Created
+    </label>
+    <input type="datetime" id="dateCreated" class="form-control" formControlName="dateCreated" value="{{selectedType?.dateCreated}}">
+  </div>
+
+  <div class="form-group pmd-checkbox">
+    <input type="checkbox" id="isActive" class="form-control" formControlName="isActive" value="{{selectedType?.isActive}}" > Status
+  </div>
+  <!--<p>
+    <md-form-field>
+      <input mdInput placeholder="Type Id" value="{{selectedType?.typeId}}" formControlName="typeId">
+    </md-form-field>
+  </p>
+  <p>
+    <md-form-field>
+      <input mdInput placeholder="Type name" value="{{selectedType?.typeName}}" formControlName="typeName">
+    </md-form-field>
+  </p>
+  <p>
+    <md-form-field>
+      <input mdInput placeholder="Date" value="{{selectedType?.dateCreated}}" formControlName="dateCreated">
+    </md-form-field>
+  </p>
+  <p>
+    <md-form-field>
+      <input mdInput placeholder="Status" value="{{selectedType?.isActive}}" formControlName="isActive">
+    </md-form-field>
+  </p>-->
+  <pre>{{myform.value | json}}</pre>
+</form>

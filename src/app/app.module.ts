@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NouisliderModule } from 'ng2-nouislider';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DialogComponent } from './dialog/dialog.component';
 import { MdAutocompleteModule,  MdButtonModule,  MdButtonToggleModule,  MdCardModule,  MdCheckboxModule,  MdChipsModule,

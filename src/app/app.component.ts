@@ -18,26 +18,6 @@ export class AppComponent implements OnInit, OnDestroy {
     isMobile = false;
     cartCount = 9;
     cartPrice = 1500;
-    someKeyboardConfig: any = {
-        behaviour: 'drag',
-        connect: true,
-        margin: 30,
-        start: [20, 255],
-        keyboard: true,  // same as [keyboard]="true"
-        step: 1,
-        pageSteps: 10,  // number of page steps, defaults to 10
-        range: {
-            min: 0,
-            max: 900
-        },
-        pips: {
-            mode: 'count',
-            density: 2,
-            values: 6,
-            stepped: true
-        },
-        onChange: this.someKeyboard2EventHandler
-    };
 
     constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer,
                 private dialog: MdDialog, private media: ObservableMedia) {
@@ -50,9 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private openAdminDialog() {
         this.dialog.open(DialogComponent);
     }
-    private someKeyboard2EventHandler(){
-        console.log("Changed");
-    }
+
     ngOnInit() {
         this._mediaSubscription = this.media.asObservable().subscribe((change: MediaChange) => {
             this.isMobile = (change.mqAlias === 'xs') || (change.mqAlias === 'sm');

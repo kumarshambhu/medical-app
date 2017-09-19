@@ -1,5 +1,5 @@
 export class TypeModel {
-    constructor(public name, public description){
+    constructor(public typeId, public typeName, public dateCreated, public isActive) {
     }
 
 }

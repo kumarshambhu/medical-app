@@ -8,16 +8,17 @@ import {convertValueToOutputAst} from "@angular/compiler/src/output/value_util";
   styleUrls: ['./type-list.component.css']
 })
 export class TypeListComponent implements OnInit {
-  typeList: TypeModel[] = [];
+   typeList: TypeModel[];
 
-  typeModel = new TypeModel("Name", "description");
+  // typeModel = new TypeModel("Name", "description");
   @Output() typeSelected = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+    this.typeList = [new TypeModel(1, "Type1", new Date(), 0), new TypeModel(2, "Type 2", new Date(), 1)];
   }
   onSelect(typeModel: TypeModel) {
-    console.log(typeModel);
+    // console.log(typeModel);
     this.typeSelected.emit(typeModel);
   }
 
