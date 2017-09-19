@@ -11,6 +11,7 @@ export class TypesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("TEst");
   }
 
 }
