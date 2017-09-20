@@ -4,13 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { DialogComponent } from './dialog/dialog.component';
-import { MdAutocompleteModule,  MdButtonModule,  MdButtonToggleModule,  MdCardModule,  MdCheckboxModule,  MdChipsModule,
-  MdDatepickerModule, MdDialogModule, MdExpansionModule, MdGridListModule, MdIconModule, MdInputModule,
-  MdListModule, MdMenuModule, MdNativeDateModule, MdPaginatorModule, MdProgressBarModule, MdProgressSpinnerModule,
-  MdRadioModule, MdRippleModule, MdSelectModule, MdSidenavModule, MdSliderModule, MdSlideToggleModule, MdSnackBarModule,
-  MdSortModule, MdTableModule, MdTabsModule, MdToolbarModule, MdTooltipModule } from '@angular/material';
-import {FlexLayoutModule} from '@angular/flex-layout';
+// import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpModule} from '@angular/http';
 import 'hammerjs';
 import { SubtypeComponent } from './component/subtype/subtype.component';
@@ -29,14 +23,12 @@ import { SubTypeApiService } from './services/sub-type-api.service';
 import { TypesComponent } from './component/types/types.component';
 import { TypeListComponent } from './component/types/type-list/type-list.component';
 import { TypeDetailsComponent } from './component/types/type-details/type-details.component';
-import {TypeItemComponent} from "./component/types/type-list/type-item.component";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent,
     SubtypeComponent,
     HeaderComponent,
     UserinfoComponent,
@@ -49,20 +41,11 @@ import {TypeItemComponent} from "./component/types/type-list/type-item.component
     HomeComponent,
     TypesComponent,
     TypeListComponent,
-    TypeDetailsComponent,
-    TypeItemComponent
+    TypeDetailsComponent
   ],
-  entryComponents: [DialogComponent],
-  exports: [
-  ],
-  imports: [
-    BrowserModule, HttpModule, FormsModule, ReactiveFormsModule, FlexLayoutModule, BrowserAnimationsModule,
-    MdAutocompleteModule, MdButtonModule, MdButtonToggleModule, MdCardModule, MdCheckboxModule, MdChipsModule,
-    MdDatepickerModule, MdDialogModule, MdExpansionModule, MdGridListModule, MdIconModule, MdInputModule,
-    MdListModule, MdMenuModule, MdNativeDateModule, MdPaginatorModule, MdProgressBarModule, MdProgressSpinnerModule,
-    MdRadioModule, MdRippleModule, MdSelectModule, MdSidenavModule, MdSliderModule, MdSlideToggleModule,
-    MdSnackBarModule, MdSortModule, MdTableModule, MdTabsModule, MdToolbarModule, MdTooltipModule, routing
-  ],
+  entryComponents: [],
+  exports: [],
+  imports: [FormsModule, ReactiveFormsModule, HttpModule, BrowserModule, routing],
   providers: [TypeApiService, SubTypeApiService],
   bootstrap: [AppComponent]
 })

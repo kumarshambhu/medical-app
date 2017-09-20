@@ -1,7 +1,7 @@
 import {Component, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MdIconRegistry, MdDialog, MdSidenav} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
-import {DialogComponent} from './dialog/dialog.component';
+//import {DialogComponent} from './dialog/dialog.component';
 import {Subscription} from 'rxjs/Subscription';
 import {MediaChange, ObservableMedia} from '@angular/flex-layout';
 import {WindowService} from './windows.service';
@@ -37,7 +37,8 @@ export class AppComponent implements OnInit, OnDestroy {
     }];
 
   constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer,
-              private dialog: MdDialog, private media: ObservableMedia, private windowService: WindowService) {
+              // private dialog: MdDialog,
+              private media: ObservableMedia, private windowService: WindowService) {
     // To avoid XSS attacks, the URL needs to be trusted from inside of your application.
     const avatarsSafeUrl = sanitizer.bypassSecurityTrustResourceUrl('./assets/avatars.svg');
 
@@ -46,9 +47,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   selectedUser = this.users[0];
 
-  private openAdminDialog() {
+  /*private openAdminDialog() {
     this.dialog.open(DialogComponent);
-  }
+  }*/
 
   ngOnInit() {
     this._mediaSubscription = this.media.asObservable().subscribe((change: MediaChange) => {
