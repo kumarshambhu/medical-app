@@ -1,91 +1,69 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div fxLayout="column" fxFlex>
   <md-toolbar color="primary">
-        <button md-icon-button *ngIf="isMobile" (click)="leftsidenav.toggle()">
-          <md-icon>toc</md-icon>
-        </button>
-        <span>Angular Material</span>
-        <span class="example-spacer"></span>
-        <button md-raised-button color="accent" (click)="rightsidenav.toggle()" class="example-icon">
-          <md-icon>shopping_cart</md-icon>
-          Cart (9) 9000
-        </button>
-        <md-menu #appMenu="mdMenu" yPosition="below" x-position="before">
-          <span style="font-size:large;font-weight:bolder;margin:25px;padding-top:20px; padding-bottm:20px;">Shambhu</span>
-          <button md-menu-item>
-            <md-icon> shopping_basket </md-icon>
-            <span> Orders </span>
-          </button>
-          <button md-menu-item>
-            <md-icon> directions </md-icon>
-            <span> Address</span>
-          </button>
-          <button md-menu-item>
-            <md-icon> star </md-icon>
-            <span> Reviews</span>
-          </button>
-          <button md-menu-item>
-            <md-icon> favorite </md-icon>
-            <span> Wishlist</span>
-          </button>
-          <button md-menu-item>
-            <md-icon> photo_library </md-icon>
-            <span> Media Library</span>
-          </button>
-          <span style="font-size:larger;font-weight:bolder;margin:25px;padding-top:20px; padding-bottm:20px;">User</span>
-          <button md-menu-item>
-            <md-icon> settings_applications </md-icon>
-            <span> Change PAssword</span>
-          </button>
-          <button md-menu-item>
-            <md-icon> account_circle </md-icon>
-            <span> Edit Profile</span>
-          </button>
-          <button md-menu-item>
-            <md-icon> logout </md-icon>
-            <span> Logout</span>
-          </button>
-        </md-menu>
-        <button md-icon-button [mdMenuTriggerFor]="appMenu" class="profile-icon">
-          <md-icon>face</md-icon>
-          <span>Test User</span>
-          <md-icon>more_vert</md-icon>
-        </button>
+    <button md-icon-button *ngIf="isMobile" (click)="leftsidenav.toggle()">
+      <md-icon>toc</md-icon>
+    </button>
+    <span>Angular Material</span>
+    <span class="example-spacer"></span>
+    <button md-raised-button color="accent" (click)="rightsidenav.toggle()" class="example-icon">
+      <md-icon>shopping_cart</md-icon>
+      Cart ({{cartCount}}) {{cartPrice}}
+    </button>
+    <md-menu #appMenu="mdMenu" yPosition="below" x-position="before">
+      <span class="big-label">Shambhu</span>
+      <button md-menu-item>
+        <md-icon> shopping_basket</md-icon>
+        <span> Orders </span>
+      </button>
+      <button md-menu-item>
+        <md-icon> directions</md-icon>
+        <span> Address</span>
+      </button>
+      <button md-menu-item>
+        <md-icon> star</md-icon>
+        <span> Reviews</span>
+      </button>
+      <button md-menu-item>
+        <md-icon> favorite</md-icon>
+        <span> Wishlist</span>
+      </button>
+      <button md-menu-item>
+        <md-icon> photo_library</md-icon>
+        <span> Media Library</span>
+      </button>
+      <span class="big-label">User</span>
+      <button md-menu-item>
+        <md-icon> settings_applications</md-icon>
+        <span> Change PAssword</span>
+      </button>
+      <button md-menu-item>
+        <md-icon> account_circle</md-icon>
+        <span> Edit Profile</span>
+      </button>
+      <button md-menu-item>
+        <md-icon> logout</md-icon>
+        <span> Logout</span>
+      </button>
+    </md-menu>
+    <button md-icon-button [mdMenuTriggerFor]="appMenu" class="profile-icon">
+      <md-icon>face</md-icon>
+      <span>Test User</span>
+      <md-icon>more_vert</md-icon>
+    </button>
   </md-toolbar>
   <md-sidenav-container fxFlex>
     <md-sidenav #leftsidenav [mode]="!isMobile ? 'side' : 'over'" [opened]="!isMobile"
-                position ="start">
-      <md-tab-group>
-        <md-tab label="Users">
-          <md-nav-list>
-            <md-list-item *ngFor="let user of users" (click)="selectedUser = user">
-              <md-icon svgIcon="avatars:{{user.avatar}}" class="avatar"></md-icon>
-              <span>{{user.name}}</span>
-            </md-list-item>
-          </md-nav-list>
-        </md-tab>
-        <md-tab label="Settings">
-          <span>Settings</span>
-          <br/><br/><br/><br/><br/><br/><br/><br/>
-          <button md-fab (click)="openAdminDialog()" class="fab-bottom-right">
-            <md-icon>add</md-icon>
-          </button>
-        </md-tab>
-      </md-tab-group>
+                position="start">
+      <app-header></app-header>
     </md-sidenav>
-    <md-sidenav #rightsidenav position ="end" mode="over">
+    <md-sidenav #rightsidenav position="end" mode="over">
       Sam
     </md-sidenav>
-
-
     <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
-      <md-card fxFlex="80">
-        1
-      </md-card>
-      <md-card fxFlex fxLayout="column" fxLayoutGap="14px">
-        12
+      <md-card fxFlex="100">
+        <router-outlet></router-outlet>
       </md-card>
     </div>
   </md-sidenav-container>
-
 </div>

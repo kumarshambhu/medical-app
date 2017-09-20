@@ -1,8 +1,11 @@
-<div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
-  <md-card fxFlex="60">
-    <app-type-list (typeSelected)= "selectedTypeModel = $event"></app-type-list>
-  </md-card>
-  <md-card fxFlex fxLayout="column" fxLayoutGap="14px">
-    <app-type-details [selectedType]="selectedTypeModel"></app-type-details>
-  </md-card>
+<br/><br/><br/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 col-lg-7">
+            <app-type-list (typeSelected)="selectedTypeModel = $event"></app-type-list>
+        </div>
+        <div class="col-md-5 col-lg-5">
+            <app-type-details [selectedType]="selectedTypeModel"></app-type-details>
+        </div>
+    </div>
 </div>

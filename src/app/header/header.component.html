@@ -1,35 +1,70 @@
-<!--<div fxLayout="column">
-    <md-card fxFlex="100">
-        <md-card-actions fxLayout="column">
-            <button md-button fxFlex="100" [routerLink]="['/home']" class="mat-button-left">Home</button>
-        </md-card-actions>
-    </md-card>
-</div>-->
-<div fxLayout="column">
-    <md-card fxFlex="100">
-        <!--<div>Master Screen</div>-->
-        <md-card-actions fxLayout="column">
-            <button md-button fxFlex="100" [routerLink]="['/companyinfo']" class="mat-button-left">Company Information</button>
-            <button md-button fxFlex="100" [routerLink]="['/userinfo']" class="mat-button-left">User Information</button>
-            <button md-button fxFlex="100" [routerLink]="['/type']" class="mat-button-left">Type</button>
-            <button md-button fxFlex="100" [routerLink]="['/subtype']" class="mat-button-left">SubType</button>
-        </md-card-actions>
-    </md-card>
-    <br/>
-    <md-card fxFlex="100">
-        <!--<div>Transactions Pages</div>-->
-        <md-card-actions fxLayout="column">
-            <button md-button fxFlex="100" [routerLink]="['/patientinfo']" class="mat-button-left">Patient Information</button>
-            <button md-button fxFlex="100" [routerLink]="['/patientvisit']" class="mat-button-left">Patient Visit</button>
-            <button md-button fxFlex="100" [routerLink]="['/generatebill']" class="mat-button-left">Generate Bill</button>
-        </md-card-actions>
-    </md-card>
-    <br/>
-    <md-card fxFlex="100">
-        <!--<div>Generate Reports</div>-->
-        <md-card-actions fxLayout="column">
-            <button md-button fxFlex="100" [routerLink]="['/billcollection']" class="mat-button-left">Bill Collection</button>
-            <button md-button fxFlex="100" [routerLink]="['/showbill']" class="mat-button-left">Show bill</button>
-        </md-card-actions>
-    </md-card>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="pmd-ripple-effect navbar-toggle pmd-navbar-toggle" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="javascript:void(0);" class="navbar-brand navbar-brand-custome">Shambhu</a>
+        </div>
+        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse pmd-navbar-sidebar">
+            <div class="dropdown pmd-dropdown pmd-user-info pull-right">
+                <a href="javascript:void(0);" class="btn-user dropdown-toggle media" data-toggle="dropdown"
+                   data-sidebar="true" aria-expanded="false">
+                    <div class="media-left">
+                        <img src="http://propeller.in/assets/images/avatar-icon-40x40.png" width="40" height="40"
+                             alt="avatar">
+                    </div>
+                    <div class="media-body media-middle">
+                        User
+                    </div>
+                    <div class="media-right media-middle">
+                        <i class="material-icons md-dark pmd-sm">more_vert</i>
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a href="javascript:void(0);">Edit Profile</a></li>
+                    <li><a href="javascript:void(0);">Logout</a></li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown pmd-dropdown">
+                    <a data-toggle="dropdown" class="pmd-ripple-effect dropdown-toggle" data-sidebar="true"
+                       href="javascript:void(0);">Transactions Pages <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="pmd-ripple-effect active" [routerLink]="['/patientinfo']">Patient Information</a>
+                        </li>
+                        <li><a class="pmd-ripple-effect" [routerLink]="['/patientvisit']">Patient Visit</a></li>
+                        <li><a class="pmd-ripple-effect" [routerLink]="['/generatebill']">Generate Bill</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown pmd-dropdown">
+                    <a data-toggle="dropdown" class="pmd-ripple-effect dropdown-toggle" data-sidebar="true"
+                       href="javascript:void(0);">Generate Reports <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="pmd-ripple-effect active" [routerLink]="['/billcollection']">Bill Collection</a>
+                        </li>
+                        <li><a class="pmd-ripple-effect" [routerLink]="['/showbill']">Show Bill</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!--<li><a class="pmd-ripple-effect" href="javascript:void(0);">Link</a></li>-->
+                <li class="dropdown pmd-dropdown">
+                    <a data-toggle="dropdown" class="pmd-ripple-effect dropdown-toggle" data-sidebar="true"
+                       href="javascript:void(0);">Master Screen <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="pmd-ripple-effect active" [routerLink]="['/companyinfo']">Company Information</a>
+                        </li>
+                        <li><a class="pmd-ripple-effect" [routerLink]="['/userinfo']">User Information</a></li>
+                        <li><a class="pmd-ripple-effect" [routerLink]="['/type']">Type</a></li>
+                        <li><a class="pmd-ripple-effect" [routerLink]="['/subtype']">SubType</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    <div class="pmd-sidebar-overlay"></div>
+</nav>
