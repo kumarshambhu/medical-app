@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TypeModel} from "../type-model";
 import {FormControl, FormGroup} from "@angular/forms";
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-type-details',
   templateUrl: './type-details.component.html',

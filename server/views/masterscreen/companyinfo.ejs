@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+<% include ../layout.ejs %>
+<script type="text/javascript" src="javascripts/service/CompanyInfoService.js"></script>
+<script type="text/javascript" src="javascripts/controller/CompanyInfoCntl.js"></script>
+<div class="row container-fluid" ng-controller="CompanyInfoController">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-push-3 col-md-push-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Company Information</div>
+
+            <form role="form">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="Company">Name of the Company:</label>
+                        <input type="text" class="form-control" id="Company" ng-readonly="!editMode" placeholder="Enter Company" ng-model="company.name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Address:</label>
+                        <textarea name="text" rows="3"  ng-readonly="!editMode" class="form-control"
+                                  placeholder="Enter Address" ng-model="company.address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone">Phone Number:</label>
+                        <input type="text" class="form-control" id="Phone" ng-readonly="!editMode" placeholder="Phone Number" ng-model="company.phone">
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-primary" ng-hide="editMode" ng-click="enableEdit()">Change</button>
+                    <button type="submit" class="btn btn-primary" ng-show="editMode" ng-click="addCompany(company)">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

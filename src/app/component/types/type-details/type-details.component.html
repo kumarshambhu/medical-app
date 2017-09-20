@@ -1,23 +1,45 @@
 <!--{{selectedType?.typeId}} &#45;&#45; {{selectedType?.typeName}} &#45;&#45; {{selectedType?.dateCreated}} &#45;&#45; {{selectedType?.isActive}}-->
 <br/>
 <form [formGroup]="myform">
+
+  <div class="form-group pmd-textfield">
+    <label for="id" class="control-label">
+      Type Name
+    </label>
+    <input type="text" id="id" class="form-control" formControlName="typeName" value="{{selectedType?.id}}" >
+  </div>
+
   <div class="form-group pmd-textfield">
     <label for="typeName" class="control-label">
       Type Name
     </label>
-    <input type="text" id="typeName" class="form-control" formControlName="typeName" value="{{selectedType?.typeName}}" >
+    <input type="text" id="typeName" class="form-control" formControlName="typeName" value="{{selectedType?.name}}" >
   </div>
 
   <div class="form-group pmd-textfield">
     <label for="dateCreated" class="control-label">
       Date Created
     </label>
-    <input type="datetime" id="dateCreated" class="form-control" formControlName="dateCreated" value="{{selectedType?.dateCreated}}">
+    <input type="datetime" id="dateCreated" class="form-control"
+           formControlName="dateCreated" value="{{selectedType?.dateofentry | date:'yMdjm'}}">
+  </div>
+  <div class="checkbox pmd-default-theme">
+    <label class="pmd-checkbox pmd-checkbox-ripple-effect">
+      <!--<input type="checkbox" value="" formControlName="isActive" value="{{selectedType?.isActive}}">-->
+      <input type="checkbox" [checked]="selectedType?.deleted == 1">
+      <span>Status</span>
+    </label>
   </div>
 
-  <div class="form-group pmd-checkbox">
-    <input type="checkbox" id="isActive" class="form-control" formControlName="isActive" value="{{selectedType?.isActive}}" > Status
-  </div>
+
+
+
+
+
+
+
+
+
 
   <pre>{{myform.value | json}}</pre>
 </form>

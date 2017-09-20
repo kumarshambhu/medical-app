@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+<% include ../layout.ejs %>
+<script type="text/javascript" src="javascripts/service/PatientInfoService.js"></script>
+<script type="text/javascript" src="javascripts/controller/PatientInfoCntl.js"></script>
+<script type="text/javascript" src="javascripts/lib/MedisoftFactory.js"></script>
+<div class="row container-fluid" ng-controller="PatientInfoController">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Patient Information</div>
+            <form role="form">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>MRD No.:</label>
+                        <input type="text" class="form-control" placeholder="MRD No." ng-model="patientinfo.mrd" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Name of the Patient:</label>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <select class="form-control selectpicker" ng-model="patientinfo.title" 
+                                        ng-options="titleList for titleList in titleList" required>
+                                    <option value="">-- Select Title --</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                <input type="text" class="form-control col-lg-12" ng-model="patientinfo.name" 
+                                       placeholder="Name of the Patient">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address:</label>
+                        <textarea class="form-control" rows="3" ng-model="patientinfo.address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone No.:</label>
+                        <input type="text" class="form-control" placeholder="Phone No." ng-model="patientinfo.phone">
+                    </div>
+                    <div class="row"> 
+                    	<div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    		<label>Date of Birth:</label>
+			                <!-- <div class="row">
+			                	<div class=" col-lg-10 col-md-10 col-sm-9 col-xs-9">
+				                	<input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" 
+	                                       ng-model="patientinfo.birthday" is-open="opened" ng-readonly="true" 
+	                                       datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                 </div>      
+                                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+	                                <button type="button" class="btn btn-default" ng-click="open($event)">
+	                                    <i class="glyphicon glyphicon-calendar"></i>
+	                                </button>
+                                </div>
+                             </div> -->   
+                             <div class="form-inline">
+                                <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy"
+                                       ng-model="patientinfo.birthday" is-open="opened" ng-readonly="true"
+                                       uib-datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <button type="button" class="btn btn-default" ng-click="open($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </div>
+			            </div>
+			            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+			                <label>Age:</label>
+			                <input type="text" class="form-control col-md-5" placeholder="Age" 
+                                   value="{{calculateAge(patientinfo.birthday)}}" ng-readonly="true">
+			            </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Sex:</label>
+                        <select class="form-control selectpicker" ng-model="patientinfo.sex" 
+                                ng-options="sexList for sexList in sexList" required>
+                            <option value="">-- Select Sex --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-primary" ng-hide="editMode" ng-click="addPatientInfo(patientinfo)">Add</button>
+                    <button type="submit" class="btn btn-primary" ng-show="editMode" ng-click="updatePatientInfo(patientinfo)">Update</button>
+                    <button type="submit" class="btn btn-danger" ng-click="reset()">Reset</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div align="center">Edit</div>
+                            </th>
+                            <th>
+                                <div align="center">MRD No</div>
+                            </th>
+                            <th>
+                                <div align="center">Name</div>
+                            </th>
+                            <th>
+                                <div align="center">Mobile No</div>
+                            </th>
+                            <th>
+                                <div align="center">Delete</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="patientInfo in patientInfoList | orderBy:predicate">
+                            <td>
+                                <button class="btn btn-info" ng-click="editPatientinfo(patientInfo)">
+                                    <span class="glyphicon glyphicon-edit text-info">
+                                </button>
+                            </td>
+                            <td>{{patientInfo.mrd}}</td>
+                            <td>{{patientInfo.name}}</td>
+                            <td>{{patientInfo.phone}}</td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="deleteType(patientInfo)">
+                                    <span class="glyphicon glyphicon-trash">
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+<% include ../layout.ejs %>
+<style type="text/css">
+    .header {
+        background-color: #3ab44a;
+        color: white;
+        font-weight: bold;
+    }
+
+    .item {
+        padding-left: 8px;
+    }
+</style>
+<script type="text/javascript" src="javascripts/service/BillService.js"></script>
+<script type="text/javascript" src="javascripts/controller/ReportCntl.js"></script>
+<script type="text/javascript" src="javascripts/lib/MedisoftFactory.js"></script>
+<div ng-controller="ReportController">
+    <div class="panel panel-default">
+        <div class="panel-heading">Search Information</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <label>Start Date</label><br/>
+                    <div class="form-inline">
+                        <input type="text" uib-datepicker-popup="dd-MM-yyyy" is-open="opened1" class="form-control"
+                               ng-model="patient.startDate" uib-datepicker-options="dateOptions"
+                               uib-date-disabled="disabled(date, mode)"
+                               ng-required="true" placeholder="DD-MM-YYYY" ng-readonly="true" max-date="patient.endDate"
+                               show-button-bar="false">
+                        <button class="btn" ng-click="open($event,'opened1')"><span
+                                    class="glyphicon glyphicon-calendar"></span></button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <label>End Date</label> <br/>
+                    <div class="form-inline">
+                        <input type="text" uib-datepicker-popup="dd-MM-yyyy" class="form-control" ng-model="patient.endDate"
+                               is-open="opened2" min="minDate" max="'2015-06-22'" uib-datepicker-options="dateOptions"
+                               ng-readonly="true"
+                               uib-date-disabled="disabled(date, mode)" ng-required="true" placeholder="DD-MM-YYYY"
+                               close-text="Close"
+                               max-date="{{today}}" min-date="patient.startDate" show-button-bar="false"/>
+                        <button class="btn" ng-click="open($event,'opened2')"><span
+                                    class="glyphicon glyphicon-calendar"></span></button>
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <br/>
+                    <button type="submit" class="btn btn-primary"
+                            ng-click="searchData(patient)">Search
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <label>Search Information</label>
+        </div>
+        <div class="panel-body">
+            <div ng-repeat="item in friends  | orderBy:'typename' | multiGroupBy:['typename', 'subtypename']">
+                <h2 ng-show="item.group_by_CHANGED">{{item.typename}} {{item.subtypename}}</h2>
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td width="25%">{{item.patientname}}</td>
+                      <!--  <td width="15%">{{item.dateofentry | date}}</td>-->
+                        <td width="15%">{{item.dateofentry}}</td>
+                        <td width="15%">{{item.amount}}</td>
+                        <td width="15%">X&nbsp;&nbsp;{{ item.count }}</td>
+                        <td width="15%">{{item.finalamount}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">&nbsp;
+            <label class="pull-right">Total : {{total | currency}}</label>
+        </div>
+    </div>
+</div>
+</body>
+</html>

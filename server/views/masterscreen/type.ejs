@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+<% include ../layout.ejs %>
+<script type="text/javascript" src="javascripts/service/TypeService.js"></script>
+<script type="text/javascript" src="javascripts/controller/TypeCntl.js"></script>
+<div class="row container-fluid" ng-controller="TypeController">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Type Information</div>
+                <form class="form-horizontal" role="form" method="post">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="BillItemType">Bill Item Type:</label>
+                            <div class="col-sm-8">
+                                <input type="text" ng-model="itemType.name" class="form-control" id="BillItemType" placeholder="Bill Item Type">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary" ng-show="editMode" ng-click="updateType(itemType)">Update</button>
+                                <button class="btn btn-primary" ng-hide="editMode" ng-click="addType(itemType)">Add</button>
+                                <button type="submit" class="btn btn-danger" ng-click="reset()">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th><div align="center">Edit</div></th>
+                                <th><div align="center">Bill Item Type</div></th>
+                                <th><div align="center">Creation Date</div></th>
+                                <th><div align="center">Delete</div></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="typedata in types | orderBy:predicate">
+                                <td><button class="btn btn-info" ng-click="editType(typedata)"><span class="glyphicon glyphicon-edit text-info"></button></td>
+                                <td> {{typedata.name}} </td>
+                                <td> {{typedata.dateofentry |date }} </td>
+                                <td><button class="btn btn-danger" ng-click="deleteType(typedata)">
+                                        <span class="glyphicon glyphicon-trash"></span></button>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

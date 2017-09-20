@@ -23,6 +23,7 @@ import { SubTypeApiService } from './services/sub-type-api.service';
 import { TypesComponent } from './component/types/types.component';
 import { TypeListComponent } from './component/types/type-list/type-list.component';
 import { TypeDetailsComponent } from './component/types/type-details/type-details.component';
+import {CommonModule} from "@angular/common";
 
 
 
@@ -45,7 +46,7 @@ import { TypeDetailsComponent } from './component/types/type-details/type-detail
   ],
   entryComponents: [],
   exports: [],
-  imports: [FormsModule, ReactiveFormsModule, HttpModule, BrowserModule, routing],
+  imports: [FormsModule, ReactiveFormsModule, HttpModule, BrowserModule, routing, CommonModule],
   providers: [TypeApiService, SubTypeApiService],
   bootstrap: [AppComponent]
 })

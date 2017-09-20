@@ -1,5 +1,5 @@
 export class TypeModel {
-    constructor(public typeId, public typeName, public dateCreated, public isActive) {
+    constructor(public id: number, public name: string, public dateofentry, public deleted:number) {
     }
 
 }

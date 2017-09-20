@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+<% include ../layout.ejs %>
+<script type="text/javascript" src="javascripts/lib/MedisoftFactory.js"></script>
+<script type="text/javascript" src="/javascripts/controller/PatientVisitCntl.js"></script>
+<div ng-controller="PatientVisitController" class="container-fluid">
+    <form class="form-inline" role="form">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">Patient Search</div>
+                <div class="panel-body">
+
+                    <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                        <label>Search:</label>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 pull-left">
+                        <select class="form-control" ng-model="patient.searchBy"
+                                ng-options="value.value as value.label for value in searchList"
+                                required>
+                            <option value="">-- Search Criteria--</option>
+                        </select>
+
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 pull-left">
+                        <input type="text" class="form-control" ng-model="patient.searchValue">
+                    </div>
+                    <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
+                        <button type="submit" class="btn btn-primary"
+                                ng-disabled="!patient.searchValue" ng-click="getPatientData()">Submit
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-1 col-sm-12 col-xs-12"></div>
+
+                </div>
+            </div>
+
+    </form>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Patient Information</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <label>Patient Name</label><br/>
+                    {{patientInfo.title}}&nbsp;{{patientInfo.name}}
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <label>Mrd</label> <br/>
+                    {{patientInfo.mrd}}
+                </div>
+                <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <label>Phone Number</label><br/>
+                    {{patientInfo.phone}}
+                </div>
+                <div class="form-group col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                    <label>Previous Visit</label> <br/>
+                    {{patientInfo.historycount}}
+                </div>
+                <div class="form-group col-lg-1 col-md-1 col-sm-12 col-xs-12">
+                    <br/>
+                    <button type="submit" class="btn btn-primary" ng-click="showHistory(patientInfo.id)"
+                            ng-show="patientInfo.historycount">History
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" ng-show="showHistoryDiv">
+        <div class="panel-heading">Patient Information<button class="pull-right btn btn-default" ng-click="hideHistoryDiv()">Hide</button></div>
+        <div class="panel-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th><div align="center">Diagonsis</div></th>
+                    <th><div align="center">Date</div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="typedata in patientVisitList track by $index">
+                    <td>{{typedata.diagnosis}}</td>
+                    <td>{{typedata.date_of_entry |date}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-default" ng-show="patientInfo.title">
+        <div class="panel-heading">Patient Visit Information </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label>Diagnosis:</label><br/>
+                    <label class="textareaContainer">
+                        <textarea name="text" rows="3" ng-model="patientVisit.diagnosis"></textarea>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label>Upload Prescription:</label><br/>
+                    <input type="file" ng-model="patientVisit.prescription">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-inline col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button class="btn btn-primary" ng-click="addHistory(patientVisit)">Submit</button>
+                    <button class="btn btn-secondary">Reset</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

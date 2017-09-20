@@ -8,6 +8,17 @@ const bodyParser = require('body-parser');
 const api = require('./server/routes/api');
 
 const app = express();
+app.use(bodyParser.json())
+var SubTypeRoute = require('./server/routes/SubTypeRouteConfig');
+new SubTypeRoute(app);
+var TypeRoute = require('./server/routes/TypeRouteConfig');
+new TypeRoute(app);
+var UserRoute = require('./server/routes/UserRouteConfig');
+new UserRoute(app);
+var CompanyInfoRoute = require('./server/routes/CompanyInfoRouteConfig');
+new CompanyInfoRoute(app);
+var PatientInfoRoute = require('./server/routes/PatientInfoRouteConfig');
+new PatientInfoRoute(app);
 
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -35,8 +46,5 @@ app.set('port', port);
  */
 const server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
 
 server.listen(port, function(){ console.log('API running on localhost:'+port)});
