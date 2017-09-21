@@ -13,7 +13,7 @@
     <label for="typeName" class="control-label">
       Type Name
     </label>
-    <input type="text" id="typeName" class="form-control" value="{{selectedType?.name}}" >
+    <input type="text" id="typeName" class="form-control" value="{{selectedType?.name}}" formControlName="name">
   </div>
 
   <div class="form-group pmd-textfield">
@@ -21,16 +21,16 @@
       Date Created
     </label>
     <input type="datetime" id="dateCreated" class="form-control"
-           value="{{selectedType?.dateofentry | date:'yMdjm'}}" disabled="disabled">
+           value="{{selectedType?.dateofentry | date:'yMdjm'}}" disabled="disabled" formControlName="dateofentry">
   </div>
   <div class="checkbox pmd-default-theme">
     <label class="pmd-checkbox pmd-checkbox-ripple-effect">
-      <input type="checkbox" [checked]="selectedType?.deleted == 1">
+      <input type="checkbox" [checked]="selectedType?.deleted == 1" formControlName="deleted">
       <span>Status</span>
     </label>
   </div>
 
-  <button type="button" class="btn pmd-ripple-effect btn-success" (click)="onSubmit(selectedType)">
+  <button type="button" class="btn pmd-ripple-effect btn-success" (click)="onSubmit(myform)">
     <div *ngIf="selectedType?.id > 0;then content else other_content">here is ignored</div>
     <ng-template #content>Update</ng-template>
     <ng-template #other_content>Add</ng-template>

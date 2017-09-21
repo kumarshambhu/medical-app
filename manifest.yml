@@ -1,0 +1,19 @@
+---
+applications:
+  - name: ang4
+    memory: 128M
+    buildpack: nodejs_buildpack
+    command:  node server.js
+services:
+      - my-uaa
+      - medisoftdb
+env:
+        node_env: development
+        uaa_service_label : predix-uaa
+        clientId: app_client_id
+        base64ClientCredential: YWRtaW4=
+        clientSecret: YXBwX2NsaWVudF9pZDphZG1pbg==
+        #UAA_SERVER_URL: https://bfd5aaeb-28a2-442e-951e-54d5970d76a4.predix-uaa.run.aws-usw02-pr.ice.predix.io
+        #GRANT_TYPE: authorization_code
+        #REDIRECT_URI: https://ang4.run.aws-usw02-pr.ice.predix.io
+        #LOGIN_URL: https://bfd5aaeb-28a2-442e-951e-54d5970d76a4.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/authorize?client_id=app_client_id&response_type=code&redirect_uri=https://ang4.run.aws-usw02-pr.ice.predix.io

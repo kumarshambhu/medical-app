@@ -1,0 +1,10 @@
+{
+  "development": {
+    "note": "Out of the box, the predix-seed app uses mock data, so these values are not required.  Set these values for connecting to real Predix services.",
+    "clientId": "app_client_id",
+    "uaaURL": "https://bfd5aaeb-28a2-442e-951e-54d5970d76a4.predix-uaa.run.aws-usw02-pr.ice.predix.io",
+    "base64ClientCredential": "YXBwX2NsaWVudF9pZDphZG1pbg==",
+    "appURL": "https://ang4.run.aws-usw02-pr.ice.predix.io",
+    "windServiceURL": "https://ang4.run.aws-usw02-pr.ice.predix.io"
+  }
+}

@@ -3,20 +3,20 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
-
 const app = express();
 app.use(bodyParser.json());
+
 // Predix config start
 var cookieParser = require('cookie-parser'); // used for session cookie
 var passport;
 var session = require('express-session');
-var proxy = require('./server/proxy');
-var config = require('./server/predix-config');
-var passportConfig = require('./server/passport-config');
+var proxy = require('./proxy');
+var config = require('./predix-config');
+var passportConfig = require('./passport-config');
 var node_env = process.env.node_env || 'development';
 var node_env = process.env.node_env || 'development';
 if (node_env === 'development') {
-  var devConfig = require('./server/localConfig.json')[node_env];
+  var devConfig = require('./localConfig.json')[node_env];
 	proxy.setServiceConfig(config.buildVcapObjectFromLocalConfig(devConfig));
 	proxy.setUaaConfig(devConfig);
 }
@@ -113,8 +113,6 @@ app.get('/logout', function(req, res) {
 
 // Get our API routes
 const api = require('./server/routes/api');
-
-
 var SubTypeRoute = require('./server/routes/SubTypeRouteConfig');
 new SubTypeRoute(app);
 var TypeRoute = require('./server/routes/TypeRouteConfig');
