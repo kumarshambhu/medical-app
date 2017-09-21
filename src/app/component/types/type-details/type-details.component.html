@@ -6,14 +6,14 @@
     <label for="id" class="control-label">
       Type Name
     </label>
-    <input type="text" id="id" class="form-control" formControlName="typeName" value="{{selectedType?.id}}" >
+    <input type="text" id="id" class="form-control" value="{{selectedType?.id}}" disabled="disabled">
   </div>
 
   <div class="form-group pmd-textfield">
     <label for="typeName" class="control-label">
       Type Name
     </label>
-    <input type="text" id="typeName" class="form-control" formControlName="typeName" value="{{selectedType?.name}}" >
+    <input type="text" id="typeName" class="form-control" value="{{selectedType?.name}}" >
   </div>
 
   <div class="form-group pmd-textfield">
@@ -21,25 +21,19 @@
       Date Created
     </label>
     <input type="datetime" id="dateCreated" class="form-control"
-           formControlName="dateCreated" value="{{selectedType?.dateofentry | date:'yMdjm'}}">
+           value="{{selectedType?.dateofentry | date:'yMdjm'}}" disabled="disabled">
   </div>
   <div class="checkbox pmd-default-theme">
     <label class="pmd-checkbox pmd-checkbox-ripple-effect">
-      <!--<input type="checkbox" value="" formControlName="isActive" value="{{selectedType?.isActive}}">-->
       <input type="checkbox" [checked]="selectedType?.deleted == 1">
       <span>Status</span>
     </label>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-  <pre>{{myform.value | json}}</pre>
+  <button type="button" class="btn pmd-ripple-effect btn-success" (click)="onSubmit(selectedType)">
+    <div *ngIf="selectedType?.id > 0;then content else other_content">here is ignored</div>
+    <ng-template #content>Update</ng-template>
+    <ng-template #other_content>Add</ng-template>
+  </button>
+  <!--<button type="button" class="btn pmd-ripple-effect btn-danger" (click)="myform.reset({})"> Cancel </button >-->
 </form>
