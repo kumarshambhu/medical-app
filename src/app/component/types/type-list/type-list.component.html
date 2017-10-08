@@ -1,28 +1,33 @@
-<p>
-  <button type="button" class="btn pmd-ripple-effect btn-info" (click)="onSelect({})">Add Type</button >
-</p>
-<div class="pmd-card pmd-z-depth">
-  <div class="table-responsive">
-    <table class="table pmd-table table-hover">
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let typeModel of typeList" (click)="onSelect(typeModel)">
-        <td data-title="Id">{{typeModel.id}}</td>
-        <td data-title="Name">{{typeModel.name}}</td>
-        <td data-title="Date">{{typeModel.dateofentry | date:'yMdjm'}}</td>
-        <td data-title="Status">{{typeModel.deleted}}</td>
-        <td data-title=""><a href="javascript:void(0);"><i class="material-icons md-dark pmd-sm">more_vert</i></a></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button type="button" class="btn pmd-ripple-effect btn-info" (click)="onSelect({})">Add Type</button>
+    </div>
+    <div class="panel-body">
+        <div class="pmd-card pmd-z-depth">
+            <div class="table-responsive">
+                <table class="table pmd-table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let typeModel of typeList" (click)="onSelect(typeModel)">
+                        <td data-title="Id">{{typeModel.id}}</td>
+                        <td data-title="Name">{{typeModel.name}}</td>
+                        <td data-title="Date">{{typeModel.dateofentry | date:'yMdjm'}}</td>
+                        <td data-title="Status">{{typeModel.deleted}}</td>
+                        <td data-title=""><a href="javascript:void(0);"><i class="material-icons md-dark pmd-sm">more_vert</i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 

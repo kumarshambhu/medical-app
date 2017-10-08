@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TypeModel} from "../type-model";
-import {FormControl, FormGroup} from "@angular/forms";
-import {DatePipe} from '@angular/common';
+import {TypeApiService} from "../../../services/type-api.service";
 
 @Component({
     selector: 'app-type-details',
@@ -11,22 +10,24 @@ import {DatePipe} from '@angular/common';
 export class TypeDetailsComponent implements OnInit {
     @Input() selectedType: TypeModel;
 
-    constructor() {
-    }
+    constructor(private typeApi: TypeApiService) {
 
-    myform: FormGroup;
+    }
 
     ngOnInit() {
-        this.myform = new FormGroup({
-            id: new FormControl(),
-            name: new FormControl(),
-            deleted: new FormControl(),
-            dateofentry: new FormControl()
-        });
+        this.selectedType = new TypeModel(0, "", "", 1);
     }
 
-    onSubmit(selectedType) {
-        console.log(selectedType);
+    onSubmit(test) {
+        console.log(test);
     }
-
+    onFormSubmit(user) {
+        // console.log(data.value);
+        // this.typeApi.save(user.value).subscribe(data => console.log(data) );
+        this.typeApi.save(user.value)
+            .subscribe(
+                data => console.log(data),
+                error => console.log(error)
+            );
+    }
 }

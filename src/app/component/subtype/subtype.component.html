@@ -1,4 +1,35 @@
 <br/><br/><br/>
-<p>
-  subtype works!
-</p>
+Directly accessing variables in the component:<br>
+      {{speed}} {{vehicle}}
+<br>
+    Adding variables in the component:<br>
+       {{speed + ' ' + vehicle}}
+<br>
+     Calling function in the component:<br>
+       {{lower(speed)}} {{upper('Jeep')}}
+<br>
+    <a (click)="setValues('Fast', newVehicle)">
+           Click to change to Fast </a>
+<br>
+     <a (click)="setValues(newSpeed, 'Rocket')">
+           Click to change to Rocket</a>
+<br>
+     <a (click)="vehicle='Car'">
+           Click to change the vehicle to a Car</a>
+<br>
+  <a (click)="vehicle='Enhanced ' + vehicle">
+    Click to Enhance Vehicle</a>
+<br>
+Uppercase: {{"Brendan" | uppercase }}<br>
+     Lowercase: {{"HELLO WORLD" | lowercase}}<br>
+     Date: {{ today | date:'yMMMMEEEEhmsz'}}<br>
+     Date: {{today | date:'mediumDate'}}<br>
+     Date: {{today | date: 'shortTime'}}<br>
+     Number: {{3.1415927 | number:'2.1-5'}}<br>
+     Number: {{28 | number:'2.3'}}<br>
+Currency: {{125.257 | currency:'USD':true: '1.2-2'}}<br>
+14     Currency: {{2158.925 | currency}}<br>
+15     Json: {{jsonObject | json}}<br>
+16     PercentPipe: {{.8888 | percent: '2.2'}}<br>
+17     SlicePipe: {{"hello world" | slice:0:8}}<br>
+18     SlicePipe: {{days | slice:1:6}}<br>

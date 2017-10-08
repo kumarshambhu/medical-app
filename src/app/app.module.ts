@@ -24,6 +24,9 @@ import { TypesComponent } from './component/types/types.component';
 import { TypeListComponent } from './component/types/type-list/type-list.component';
 import { TypeDetailsComponent } from './component/types/type-details/type-details.component';
 import {CommonModule} from "@angular/common";
+import { SearchComponent } from './component/types/search/search.component';
+import { ZoomDirective } from './directive/zoom.directive';
+import { ContainerComponent } from './component/container/container.component';
 
 
 
@@ -42,7 +45,10 @@ import {CommonModule} from "@angular/common";
     HomeComponent,
     TypesComponent,
     TypeListComponent,
-    TypeDetailsComponent
+    TypeDetailsComponent,
+    SearchComponent,
+    ZoomDirective,
+    ContainerComponent
   ],
   entryComponents: [],
   exports: [],

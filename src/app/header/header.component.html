@@ -7,14 +7,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="javascript:void(0);" class="navbar-brand navbar-brand-custome">Shambhu</a>
+           <!-- <a href="javascript:void(0);" class="navbar-brand navbar-brand-custome">Shambhu</a>-->
+            <a class="pmd-ripple-effect navbar-brand navbar-brand-custome" [routerLink]="['/home']">Shambhu</a>
         </div>
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse pmd-navbar-sidebar">
             <div class="dropdown pmd-dropdown pmd-user-info pull-right">
                 <a href="javascript:void(0);" class="btn-user dropdown-toggle media" data-toggle="dropdown"
                    data-sidebar="true" aria-expanded="false">
                     <div class="media-left">
-                        <img src="http://propeller.in/assets/images/avatar-icon-40x40.png" width="40" height="40"
+                        <img src="assets/imgs/icon.jpg" width="40" height="40"
                              alt="avatar">
                     </div>
                     <div class="media-body media-middle">
@@ -25,7 +26,7 @@
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li><a href="javascript:void(0);">Edit Profile</a></li>
+                    <li><<a class="pmd-ripple-effect" [routerLink]="['/search']">Edit Profile</a></li>
                     <li><a href="javascript:void(0);">Logout</a></li>
                 </ul>
             </div>

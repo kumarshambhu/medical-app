@@ -16,14 +16,10 @@ export class TypeListComponent implements OnInit {
   constructor(private typeApi: TypeApiService) { }
 
   ngOnInit() {
-      // this.typeList = [new TypeModel(1, "Type1", new Date(), 0), new TypeModel(2, "Type 2", new Date(), 1)];
-      console.log("1: ", this.typeList);
       this.typeList = this.typeApi.getTypeModelList();
-      console.log("2: ", this.typeList);
       this.typeApi.typesChanged.subscribe(
           (typeList: TypeModel[]) => this.typeList = typeList
       );
-      console.log("3: ", this.typeList);
   }
   onSelect(typeModel: TypeModel) {
     this.typeSelected.emit(typeModel);

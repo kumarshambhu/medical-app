@@ -1,0 +1,35 @@
+<br/><br/><br/>
+<div class=" container-fluid row-full">
+    <h2>Search</h2>
+    <form>
+        <input type="search" name="query" [(ngModel)]="query" (keyup.enter)="search()">
+        <button type="button" (click)="search()">Search</button>
+    </form>
+    <pre>{{searchResults | json}}</pre>
+    <div class="pmd-card pmd-z-depth" *ngIf="searchResults">
+        <div class="table-responsive">
+            <table class="table pmd-table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let person of searchResults; let i=index">
+                    <td data-title="Id">{{person.id}}</td>
+                    <td data-title="Name">{{person.name}}</td>
+                    <td data-title="Date">{{person.dateofentry | date:'yMdjm'}}</td>
+                    <td data-title="Status">{{person.deleted}}</td>
+                    <td data-title=""><a href="javascript:void(0);"><i
+                            class="material-icons md-dark pmd-sm">more_vert</i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

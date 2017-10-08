@@ -46,7 +46,7 @@ TypeRouteConfig.prototype.addRoutes = function () {
             dao.typeDao.addType(request.body,
                 function (status) {
                     response.json(status);
-                    console.log(status);
+                   // console.log(status);
                 });
         }
     });
@@ -58,7 +58,7 @@ TypeRouteConfig.prototype.addRoutes = function () {
             var dao = require('./server/dao/TypeDao');
             dao.typeDao.getAllType(
                 function (products) {
-                    console.log(products);
+                    //console.log(products);
                     response.json(products);
                 });
         }
@@ -68,11 +68,11 @@ TypeRouteConfig.prototype.addRoutes = function () {
         requestType: 'delete',
         requestUrl: '/api/type/:id',
         callbackFunction: function (request, response) {
-            console.log(request.params.id);
+           // console.log(request.params.id);
             var dao = require('./server/dao/TypeDao');
             dao.typeDao.deleteType(request.params.id,
                 function (products) {
-                    console.log(products);
+                    //console.log(products);
                     response.json(products);
                 });
         }

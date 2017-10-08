@@ -13,11 +13,13 @@ import {ShowbillComponent} from "./component/showbill/showbill.component";
 import {BillCollectionComponent} from "./component/bill-collection/bill-collection.component";
 import {HomeComponent} from "./component/home/home.component";
 import {TypesComponent} from "./component/types/types.component";
+import {SearchComponent} from "./component/types/search/search.component";
 
 
 const APP_ROUTES: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
+    {path: 'search', component: SearchComponent},
     {path: 'type', redirectTo: '/type', pathMatch: 'full'},
     {path: 'type', component: TypesComponent},
     {path: 'subtype', component: SubtypeComponent},

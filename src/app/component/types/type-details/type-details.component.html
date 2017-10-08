@@ -1,39 +1,49 @@
-<!--{{selectedType?.typeId}} &#45;&#45; {{selectedType?.typeName}} &#45;&#45; {{selectedType?.dateCreated}} &#45;&#45; {{selectedType?.isActive}}-->
 <br/>
-<form [formGroup]="myform">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div *ngIf="selectedType?.id > 0;then editType else addType">here is ignored</div>
+        <ng-template #addType>Add</ng-template>
+        <ng-template #editType>Update</ng-template>
+    </div>
+    <div class="panel-body">
+        <form #myform="ngForm" (ngSubmit)="onFormSubmit(myform)">
 
-  <div class="form-group pmd-textfield">
-    <label for="id" class="control-label">
-      Type Name
-    </label>
-    <input type="text" id="id" class="form-control" value="{{selectedType?.id}}" disabled="disabled">
-  </div>
+            <div class="form-group pmd-textfield" *ngIf="selectedType.id >0">
+                <label for="id" class="control-label">
+                    Type Id
+                </label>
+                <input type="text" id="id" class="form-control" [ngModel]="selectedType.id" name="id">
+            </div>
 
-  <div class="form-group pmd-textfield">
-    <label for="typeName" class="control-label">
-      Type Name
-    </label>
-    <input type="text" id="typeName" class="form-control" value="{{selectedType?.name}}" >
-  </div>
+            <div class="form-group pmd-textfield">
+                <label for="typeName" class="control-label">
+                    Type Name
+                </label>
+                <input type="text" id="typeName" class="form-control" [ngModel]="selectedType.name" name="name">
+            </div>
 
-  <div class="form-group pmd-textfield">
-    <label for="dateCreated" class="control-label">
-      Date Created
-    </label>
-    <input type="datetime" id="dateCreated" class="form-control"
-           value="{{selectedType?.dateofentry | date:'yMdjm'}}" disabled="disabled">
-  </div>
-  <div class="checkbox pmd-default-theme">
-    <label class="pmd-checkbox pmd-checkbox-ripple-effect">
-      <input type="checkbox" [checked]="selectedType?.deleted == 1">
-      <span>Status</span>
-    </label>
-  </div>
+            <div class="form-group pmd-textfield" *ngIf="selectedType.dateofentry">
+                <label for="dateCreated" class="control-label">
+                    Date Created
+                </label>
+                <input id="dateCreated" class="form-control" [ngModel]="selectedType.dateofentry | date:'yMdjm'"
+                       disabled="disabled" name="dateofentry">
+            </div>
+            <div class="checkbox pmd-default-theme">
+                <label class="pmd-checkbox pmd-checkbox-ripple-effect">
+                    <input type="checkbox" [checked]="selectedType.deleted == 1" [ngModel]="selectedType.deleted"
+                           name="deleted">
+                    <span>Status</span>
+                </label>
+            </div>
 
-  <button type="button" class="btn pmd-ripple-effect btn-success" (click)="onSubmit(selectedType)">
-    <div *ngIf="selectedType?.id > 0;then content else other_content">here is ignored</div>
-    <ng-template #content>Update</ng-template>
-    <ng-template #other_content>Add</ng-template>
-  </button>
-  <!--<button type="button" class="btn pmd-ripple-effect btn-danger" (click)="myform.reset({})"> Cancel </button >-->
-</form>
+            <button type="submit" class="btn pmd-ripple-effect btn-success">
+                <div *ngIf="selectedType?.id > 0;then content else other_content">here is ignored</div>
+                <ng-template #content>Update</ng-template>
+                <ng-template #other_content>Add</ng-template>
+            </button>
+            <button type="button" class="btn pmd-ripple-effect btn-danger" (click)="myform.reset()">Reset</button>
+        </form>
+
+    </div>
+</div>

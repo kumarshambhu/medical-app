@@ -1,4 +1,13 @@
 <br/><br/><br/>
-<p>
-  userinfo works!
-</p>
+<span *ngFor="let image of images">
+    <app-container title="{{image.title}}" description="{{image.description}}">
+        <img src="{{image.src}}"/>
+    </app-container>
+</span>
+<span app-container>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
+</span>
+<span app-container>
+<div class="diver">
+</div>
+</span>
