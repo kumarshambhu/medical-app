@@ -27,6 +27,8 @@ import {CommonModule} from "@angular/common";
 import { SearchComponent } from './component/types/search/search.component';
 import { ZoomDirective } from './directive/zoom.directive';
 import { ContainerComponent } from './component/container/container.component';
+import { ChildComponent } from './component/companyinfo/child.component';
+import { ZippyComponent } from './component/zippy/zippy.component';
 
 
 
@@ -48,7 +50,9 @@ import { ContainerComponent } from './component/container/container.component';
     TypeDetailsComponent,
     SearchComponent,
     ZoomDirective,
-    ContainerComponent
+    ContainerComponent,
+    ChildComponent,
+    ZippyComponent
   ],
   entryComponents: [],
   exports: [],

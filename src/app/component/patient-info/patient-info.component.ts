@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-info.component.css']
 })
 export class PatientInfoComponent implements OnInit {
-
+  title = 'Shambhu';
   constructor() { }
 
   ngOnInit() {
+      alert('app works');
   }
 
 }

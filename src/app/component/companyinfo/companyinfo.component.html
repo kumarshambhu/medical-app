@@ -2,3 +2,6 @@
 <p>
   companyinfo works!
 </p>
+<app-child (myCustomEvent)="eventHandler($event)"></app-child>
+<hr *ngIf="text">
+{{text}}

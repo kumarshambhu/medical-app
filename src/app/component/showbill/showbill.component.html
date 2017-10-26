@@ -1,4 +1,14 @@
 <br/><br/><br/>
-<p>
-  showbill works!
-</p>
+<div class="container-fluid">
+    <p>
+        showbill works!
+    </p>
+    <app-zippy (open)="onOpen($event)" (close)="onClose($event)"></app-zippy>
+    <div *ngIf="visible;then openDiv else closeDiv">here is ignored</div>
+    <ng-template #openDiv>Opened</ng-template>
+    <ng-template #closeDiv>Closed</ng-template>
+    <br><br/>
+    <p class="card-text" [hidden]="!visible">show div</p>
+    <p class="card-text" [hidden]="visible">hide div</p>
+</div>
+

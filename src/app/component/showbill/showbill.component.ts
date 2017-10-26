@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TypeModel} from "../types/type-model";
 
 @Component({
@@ -7,10 +7,20 @@ import {TypeModel} from "../types/type-model";
     styleUrls: ['./showbill.component.css']
 })
 export class ShowbillComponent implements OnInit {
+    visible = true;
     constructor() {
     }
 
     ngOnInit() {
     }
 
+    onOpen($event: Event) {
+        console.log("Open");
+        this.visible = true;
+    }
+
+    onClose($event: Event) {
+        console.log("Close");
+        this.visible = false;
+    }
 }
