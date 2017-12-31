@@ -1,0 +1,35 @@
+<div class="mat-dialog">
+    <h1 mat-dialog-title class="mat-dialog-title">{{subtype.id ? 'Edit' : 'Add'}} subtype</h1>
+    <div mat-dialog-content>
+        <mat-form-field style="display: none">
+            <input matInput [(ngModel)]="subtype.id" placeholder="Id">
+        </mat-form-field>
+        <mat-form-field class="field-row">
+            <input matInput [(ngModel)]="subtype.subtypename" placeholder="Sub Type Name?">
+        </mat-form-field>
+        <mat-form-field class="field-row">
+            <mat-select placeholder="Type Data" [(ngModel)]="subtype.typeid">
+                <mat-option *ngFor="let typeItem of typelist" [value]="typeItem.id">
+                    {{ typeItem.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="field-row">
+            <input matInput [matDatepicker]="picker" placeholder="Created On?" [(ngModel)]="subtype.dateofentry"
+                   [disabled]="true">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="field-row">
+            <input matInput [(ngModel)]="subtype.amount" placeholder="Amount ?">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="dialogRef.close(subtype)" color="primary">
+            {{subtype.id ? 'Update' : 'Create'}} Type
+        </button>
+        <button mat-raised-button (click)="dialogRef.close()" color="warn">
+            Cancel
+        </button>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+body {
+    overflow-x: hidden;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background:url(../images/bg.jpg) repeat-x;
+}
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+a {
+    color: #00B7FF;
+}
+
+
+.textareaContainer {
+    display: block;
+    border: 3px solid #38c;
+    padding: 10px;
+}
+
+textarea {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+}

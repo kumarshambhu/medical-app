@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>MyMaterial</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button [mat-menu-trigger-for]="transactionsMenu" color="primary" class="menu-button-space">Transactions Pages</button>&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button [mat-menu-trigger-for]="reportMenu" color="primary" class="menu-button-space">Generate Reports</button>&nbsp;&nbsp;&nbsp;
+        <button mat-raised-button [mat-menu-trigger-for]="masterMenu" color="primary" class="menu-button-space">Master Screen</button>&nbsp;&nbsp;&nbsp;
+        Welcome Shambhu
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-menu [overlapTrigger]="false" #transactionsMenu="matMenu">
+    <button mat-menu-item routerLink="patientinfo">Patient Information</button>
+    <button mat-menu-item routerLink="patientvisit">Patient Visit</button>
+    <button mat-menu-item routerLink="genearatebill">Generate Bill</button>
+</mat-menu>
+<mat-menu [overlapTrigger]="false" #reportMenu="matMenu">
+    <button mat-menu-item routerLink="collection">Collection</button>
+    <button mat-menu-item routerLink="showbill">Show bill</button>
+</mat-menu>
+
+<mat-menu [overlapTrigger]="false" #masterMenu="matMenu">
+    <button mat-menu-item routerLink="users">User Information</button>
+    <button mat-menu-item routerLink="companyinfo">Company Information</button>
+    <button mat-menu-item routerLink="type">Type</button>
+    <button mat-menu-item routerLink="subtype">Sub Type</button>
+</mat-menu>
+
+
+

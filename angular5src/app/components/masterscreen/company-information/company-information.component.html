@@ -1,0 +1,31 @@
+<br/>
+<mat-card style="width:300px; horiz-align: center" class="nb-card">
+    <mat-card-title class="nb-card-header"> View Company Details</mat-card-title>
+    <mat-card-content>
+        <mat-form-field class="vertical-row" style="display: none">
+            <input matInput [(ngModel)]="company.id" placeholder="Id">
+        </mat-form-field>
+
+        <mat-form-field class="vertical-row">
+            <input matInput [(ngModel)]="company.name" placeholder="Company name?" [disabled]="!edit">
+        </mat-form-field>
+        <mat-form-field class="vertical-row">
+            <input matInput [(ngModel)]="company.address" placeholder="Company address?" [disabled]="!edit">
+        </mat-form-field>
+
+        <mat-form-field class="vertical-row">
+            <input matInput [(ngModel)]="company.phone" placeholder="Phone Number?" [disabled]="!edit">
+        </mat-form-field>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="editCompany(true);" *ngIf="!edit">
+                Edit
+            </button>
+            <button mat-raised-button color="primay"  *ngIf="edit" (click)="updateCompany(company)">
+                Update
+            </button>
+            <button mat-raised-button color="warn" *ngIf="edit" (click)="resetData();">
+                Cancel
+            </button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>

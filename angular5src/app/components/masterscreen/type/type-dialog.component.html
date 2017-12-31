@@ -1,0 +1,57 @@
+<div class="mat-dialog">
+    <h1 mat-dialog-title class="mat-dialog-title">{{type.id ? 'Edit' : 'Add'}} Type</h1>
+    <div mat-dialog-content>
+        <mat-form-field style="display: none">
+            <input matInput [(ngModel)]="type.id" placeholder="Id">
+        </mat-form-field>
+        <mat-form-field class="field-row">
+            <input matInput [(ngModel)]="type.name" placeholder="Type name?">
+        </mat-form-field>
+        <mat-form-field class="field-row">
+            <input matInput [matDatepicker]="picker" placeholder="Created On" [(ngModel)]="type.dateofentry"
+                   [disabled]="true">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox [(ngModel)]="type.deleted" class="field-row">De-actvate</mat-checkbox>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="dialogRef.close(type)" color="primary">
+            {{type.id ? 'Update' : 'Create'}} Type
+        </button>
+        <button mat-raised-button (click)="dialogRef.close()" color="warn">
+            Cancel
+        </button>
+
+    </div>
+</div>
+
+<!--
+<mat-card>
+    <mat-card-title> {{type.id ? 'Edit' : 'Add'}} Type</mat-card-title>
+    <mat-card-content>
+        <mat-form-field class="field-row" style="display: none">
+            <input matInput [(ngModel)]="type.id" placeholder="Id">
+        </mat-form-field>
+
+        <mat-form-field class="field-row">
+            <input matInput [(ngModel)]="type.name" placeholder="Type name?">
+        </mat-form-field>
+        <mat-form-field class="field-row">
+            <input matInput [matDatepicker]="picker" placeholder="Created On" [(ngModel)]="type.dateofentry"
+                   [disabled]="true">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-checkbox [(ngModel)]="type.deleted" class="field-row">Status</mat-checkbox>
+        <mat-card-actions>
+            <button mat-button (click)="dialogRef.close(type)">
+                {{type.id ? 'Update' : 'Create'}} Type
+            </button>
+            <button mat-button (click)="dialogRef.close()">
+                Cancel
+            </button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>-->

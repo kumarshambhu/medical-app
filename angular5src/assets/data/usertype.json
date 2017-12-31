@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Patient",
+    "deleted": 0
+  },
+  {
+    "id": 2,
+    "name": "Doctor",
+    "deleted": 0
+  },
+  {
+    "id": 3,
+    "name": "Admin",
+    "deleted": 0
+  }
+]

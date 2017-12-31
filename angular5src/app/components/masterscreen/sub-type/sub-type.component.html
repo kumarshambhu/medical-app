@@ -1,0 +1,61 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+
+   <!-- <ng-container matColumnDef="id" style="display: none">
+      <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="typeid"  style="display: none">
+      <mat-header-cell *matHeaderCellDef> type id </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.typeid}} </mat-cell>
+    </ng-container>-->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="subtypename">
+      <mat-header-cell *matHeaderCellDef> sub type Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.subtypename}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="typename">
+      <mat-header-cell *matHeaderCellDef> type Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.typename}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="dateofentry">
+      <mat-header-cell *matHeaderCellDef> Date Created </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dateofentry | date:'yyyy-MM-dd'}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef> Active </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actionsColumn">
+      <mat-header-cell *matHeaderCellDef>
+        Actions <i class="material-icons" (click)="openDialog({})">mode_add</i>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="openDialog(element)">
+          <i class="material-icons">mode_edit</i>
+        </button>
+        <button mat-icon-button color="warn">
+          <i class="material-icons">delete</i>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>

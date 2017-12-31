@@ -1,15 +1,19 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "ang4"
+    "name": "angular5"
   },
   "apps": [
     {
-      "root": "src",
-      "outDir": "dist",
+      "root": "angular5src",
+      "outDir": "public/ang5",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        { "glob": "subtypes.json", "input": "../", "output": "./assets/data/" },
+        { "glob": "usertype.json", "input": "../", "output": "./assets/data/" },
+        { "glob": "users.json", "input": "../", "output": "./assets/data/" },
+        { "glob": "types.json", "input": "../", "output": "./assets/data/" }
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -52,6 +56,28 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "class": {
+      "spec": false
+    },
+    "component": {
+      "inlineStyle": false,
+      "inlineTemplate": false,
+      "spec": false
+    },
+    "directive": {
+      "spec": false
+    },
+    "guard": {
+      "spec": false
+    },
+    "module": {
+      "spec": false
+    },
+    "pipe": {
+      "spec": false
+    },
+    "service": {
+      "spec": false
+    }
   }
 }

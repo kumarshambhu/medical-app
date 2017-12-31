@@ -1,0 +1,38 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+    <!-- Name Column -->
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef> User Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="usertypename">
+      <mat-header-cell *matHeaderCellDef> user type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.usertypename}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actionsColumn">
+      <mat-header-cell *matHeaderCellDef>
+        Actions <i class="material-icons" (click)="openDialog({})">mode_add</i>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="editType(element)">
+          <i class="material-icons">mode_edit</i>
+        </button>
+        <button mat-icon-button color="warn" (click)="openDialog(element)">
+          <i class="material-icons">delete</i>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>

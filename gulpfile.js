@@ -1,23 +1,19 @@
+/**
+ * Created by Shambhu on 4/4/2017.
+ */
 var gulp = require('gulp');
-var del = require('del');
-var src = 'src/';
-var dist = 'dist/';
-var exec = require('child_process').exec;
+var nodemon = require('gulp-nodemon');
+gulp.task('default', function () {
 
-gulp.task('clean', function() {
-    del(dist);
-});
+    nodemon({
+        script: 'app.js'
+        , ext: 'js html'
+        , env: { 'port':9000 }
+        , ignore:['./node_modules/**']
+    })
+        .on('restart',function(){
+            console.log("Restarting the server");
+        });
 
-gulp.task('watch', function() {
-    gulp.watch(src + '**/*.ts', ['build']);
-    gulp.watch(src + '**/*.{html,htm,css}', ['build']);
-});
 
-gulp.task('default', ['build', 'watch']);
-gulp.task('build', function (cb) {
-    exec('ng build', function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    });
 })

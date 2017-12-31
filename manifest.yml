@@ -1,0 +1,6 @@
+---
+applications:
+ - name: medisoft-sam
+   buildpack: nodejs_buildpack
+   command: npm start
+   memory: 512M

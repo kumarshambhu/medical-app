@@ -1,0 +1,7 @@
+export interface User {
+    id: number;
+    username: string;
+    usertypeid: number;
+    usertypename: string;
+    password: string;
+}

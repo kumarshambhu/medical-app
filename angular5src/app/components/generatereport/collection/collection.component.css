@@ -1,0 +1,23 @@
+.demo-checkboxes {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.mat-card-header  {
+    padding: 1.25rem;
+    border-bottom: 2px solid #730d0d;
+    color: #122b40;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.mat-card {
+    line-height: 1.25;
+    background: #a0a3a1;
+    color: #d1d1ff;
+    margin-bottom: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 8px 20px 0 rgba(40,37,89,.6);
+    font-weight: 400;
+}

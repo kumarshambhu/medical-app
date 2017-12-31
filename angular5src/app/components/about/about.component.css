@@ -1,0 +1,16 @@
+.parent {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.child20 {
+  width: 20%;
+  background-color: darkblue;
+  height: auto;
+}
+.child60 {
+  width: 60%;
+  background-color: darkgreen;
+  height: inherit;
+}
+

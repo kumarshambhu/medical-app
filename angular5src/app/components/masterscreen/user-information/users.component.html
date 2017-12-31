@@ -1,0 +1,11 @@
+<!--
+<app-user-information></app-user-information>
+<app-user-list></app-user-list>-->
+<div class="container">
+    <div class="left">
+        <app-user-information [userModel]="selectedUser"></app-user-information>
+    </div>
+    <div class="right">
+        <app-user-list (user)="selectedUser = $event"></app-user-list>
+    </div>
+</div>

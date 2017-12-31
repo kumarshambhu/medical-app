@@ -8,12 +8,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    // "genDir": "aot",
     "typeRoots": [
       "node_modules/@types"
-    ],
-    "types": [
-      "hammerjs"
     ],
     "lib": [
       "es2017",

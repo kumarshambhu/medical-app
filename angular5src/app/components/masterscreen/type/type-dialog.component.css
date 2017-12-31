@@ -1,0 +1,22 @@
+.field-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.mat-card-title, .mat-dialog-title  {
+    text-align: center;
+    color: #122b40;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.mat-card, mat-dialog {
+    line-height: 1.25;
+    background: #EDE7F6;
+    color: #000000;
+    margin-bottom: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 8px 20px 0 rgba(40,37,89,.6);
+    font-weight: 400;
+}

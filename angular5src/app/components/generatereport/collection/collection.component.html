@@ -1,0 +1,43 @@
+<br/>
+<mat-card style="width:300px; horiz-align: center" class="nb-card">
+    <mat-card-title class="nb-card-header"> Card title</mat-card-title>
+    <mat-card-content>
+        <mat-form-field class="demo-checkboxes" style="display: none">
+            <input matInput [(ngModel)]="type.id" placeholder="Id">
+        </mat-form-field>
+
+        <mat-form-field class="demo-checkboxes">
+            <input matInput [(ngModel)]="type.name" placeholder="Type name?">
+        </mat-form-field>
+        <mat-form-field class="demo-checkboxes">
+            <input matInput [matDatepicker]="picker" placeholder="Created On" [(ngModel)]="type.dateofentry"
+                   [disabled]="true">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-checkbox [(ngModel)]="type.deleted" class="demo-checkboxes">Status</mat-checkbox>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">
+                Type
+            </button>
+            <button mat-raised-button color="accent">
+                Cancel
+            </button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
+Shmbhu
+<button mat-icon-button (click)="openSnackBar()">
+    <i class="material-icons">power_settings_new</i>
+</button>
+<button mat-icon-button color="primary">
+<i class="material-icons">mode_edit</i>
+</button>
+<button mat-icon-button color="warning">
+<i class="material-icons">delete</i>
+</button>
+<button mat-icon-button color="accent">
+<i class="material-icons">delete_forever</i>
+</button>
+Kumar

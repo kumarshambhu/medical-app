@@ -1,0 +1,65 @@
+[
+  {
+    "id": 5,
+    "username": "patient4",
+    "usertypeid": 1,
+    "usertypename": "Patient",
+    "password": "test"
+  },
+  {
+    "id": 4,
+    "username": "patient3",
+    "usertypeid": 1,
+    "usertypename": "Patient",
+    "password": "test"
+  },
+  {
+    "id": 3,
+    "username": "patient2",
+    "usertypeid": 1,
+    "usertypename": "Patient",
+    "password": "test"
+  },
+  {
+    "id": 2,
+    "username": "patient1",
+    "usertypeid": 1,
+    "usertypename": "Patient",
+    "password": "test"
+  },
+  {
+    "id": 9,
+    "username": "doctor4",
+    "usertypeid": 2,
+    "usertypename": "Doctor",
+    "password": "test"
+  },
+  {
+    "id": 8,
+    "username": "doctor3",
+    "usertypeid": 2,
+    "usertypename": "Doctor",
+    "password": null
+  },
+  {
+    "id": 7,
+    "username": "doctor2",
+    "usertypeid": 2,
+    "usertypename": "Doctor",
+    "password": "test"
+  },
+  {
+    "id": 6,
+    "username": "doctor1",
+    "usertypeid": 2,
+    "usertypename": "Doctor",
+    "password": "test"
+  },
+  {
+    "id": 1,
+    "username": "admin",
+    "usertypeid": 3,
+    "usertypename": "Admin",
+    "password": "admin"
+  }
+]
